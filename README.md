@@ -14,15 +14,40 @@ Open `index.html` for a living demo of every component in every theme.
 
 ## Usage
 
-Link the fonts and the two stylesheets. `tokens.css` must come before `xahau.css`.
+```sh
+npm i @tequdev/xahau-design-system   # or pnpm add / yarn add
+```
+
+With a bundler (Vite, Next.js, webpack), import the stylesheet once at the app entry:
+
+```js
+import "@tequdev/xahau-design-system";
+```
+
+That is `index.css`, which pulls in `tokens.css` and `xahau.css`. Import the two files separately if you want to swap or extend the tokens:
+
+```js
+import "@tequdev/xahau-design-system/tokens.css";
+import "./my-tokens.css"; // overrides
+import "@tequdev/xahau-design-system/xahau.css";
+```
+
+Without a bundler, link the files from a CDN (or copy them next to your page):
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@tequdev/xahau-design-system@0.1.0/index.css"
+>
+```
+
+The CSS does not import fonts. Add Inter and Source Code Pro yourself, or the system falls back to `system-ui` and `ui-monospace`:
 
 ```html
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;700&display=swap"
 >
-<link rel="stylesheet" href="tokens.css">
-<link rel="stylesheet" href="xahau.css">
 ```
 
 Pick a theme with classes on `<html>`. Both are optional and they combine.
@@ -30,8 +55,6 @@ Pick a theme with classes on `<html>`. Both are optional and they combine.
 ```html
 <html class="theme-green dark">
 ```
-
-Fonts are not imported by the CSS. Without the Google Fonts link the system falls back to `system-ui` and `ui-monospace`.
 
 ## Themes
 
