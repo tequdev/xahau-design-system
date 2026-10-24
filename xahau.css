@@ -24,6 +24,9 @@ input {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
 }
+.x-card-head :focus-visible {
+  outline-color: #fff;
+}
 
 .x-container {
   max-width: 80rem;
@@ -169,8 +172,8 @@ input {
   height: 30px;
   min-width: 30px;
   padding: 0 8px;
-  background: var(--surface-2);
-  color: var(--text);
+  background: var(--btn2-bg);
+  color: var(--btn2-text);
   font-size: 12px;
   white-space: nowrap;
 }
