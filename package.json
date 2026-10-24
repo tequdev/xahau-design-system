@@ -1,0 +1,9 @@
+{
+  "name": "@tequdev/xahau-design-system",
+  "version": "0.1.0",
+  "description": "Framework-free CSS design system for Xahau network tools: tokens, components, and a demo page.",
+  "license": "MIT",
+  "files": ["tokens.css", "xahau.css"],
+  "style": "xahau.css",
+  "repository": { "type": "git", "url": "git+https://github.com/tequdev/xahau-design-system.git" }
+}

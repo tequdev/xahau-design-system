@@ -1,0 +1,70 @@
+/* Xahau Design System tokens. Primitives follow xahau-test.net (Tailwind palette); semantic vars drive components. */
+:root {
+  --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-300: #d1d5db; --gray-400: #9ca3af;
+  --gray-500: #6b7280; --gray-600: #4b5563; --gray-700: #374151; --gray-800: #1f2937; --gray-900: #111827;
+  --amber-100: #fef3c7; --amber-200: #fde68a; --amber-400: #fbbf24; --amber-500: #f59e0b; --amber-600: #d97706;
+  --amber-800: #92400e; --amber-900: #78350f;
+  --green-50: #f0fdf4; --green-400: #4ade80; --green-600: #16a34a; --green-800: #166534;
+  --blue-50: #eff6ff; --blue-600: #2563eb; --blue-800: #1e40af;
+  --purple-50: #faf5ff; --purple-600: #9333ea; --purple-800: #6b21a8;
+  --red-50: #fef2f2; --red-200: #fecaca; --red-400: #f87171; --red-700: #b91c1c; --red-800: #991b1b;
+  --yellow-50: #fefce8; --yellow-400: #facc15;
+
+  --brand: #183fb7; --brand-hover: #1d4ed8; --brand-light: #7592f7;
+  --grad: linear-gradient(to right, #183fb7, #7592f7);
+
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Source Code Pro", ui-monospace, monospace;
+  --radius-sm: 0.25rem; --radius-md: 6px; --radius-lg: 0.5rem; --radius-xl: 0.75rem; --radius-full: 9999px;
+  --shadow-card: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-bar: 0 1px 2px rgb(0 0 0 / 0.05);
+
+  /* semantic */
+  --bg: var(--gray-50); --surface: #fff; --surface-2: var(--gray-100);
+  --text: var(--gray-900); --muted: var(--gray-500); --border: var(--gray-200);
+  --brand-text: var(--brand);
+  --btn2-bg: var(--gray-200); --btn2-hover: var(--gray-300); --btn2-text: var(--gray-900);
+  --badge-bg: var(--amber-100); --badge-text: var(--amber-800);
+  --warn-bg: var(--yellow-50); --warn-text: var(--amber-800);
+  --error-bg: var(--red-50); --error-text: var(--red-700);
+  --tile-green-bg: var(--green-50); --tile-blue-bg: var(--blue-50); --tile-purple-bg: var(--purple-50);
+  --tile-label: var(--gray-600);
+  --input-border: var(--gray-300);
+  --tile-green: #197a4b; --tile-blue: var(--blue-800); --tile-purple: var(--purple-800);
+}
+
+/* Dark: `.dark` on <html> (testnet style), [data-theme="dark"], or the OS preference unless [data-theme="light"]. */
+.dark, [data-theme="dark"] {
+  --bg: var(--gray-900); --surface: var(--gray-800); --surface-2: var(--gray-900);
+  --text: var(--gray-100); --muted: var(--gray-400); --border: var(--gray-700);
+  --brand-text: var(--brand-light);
+  --btn2-bg: var(--gray-700); --btn2-hover: var(--gray-600); --btn2-text: var(--gray-100);
+  --badge-bg: var(--amber-900); --badge-text: var(--amber-200);
+  --warn-bg: rgb(120 53 15 / 0.2); --warn-text: var(--amber-200);
+  --error-bg: rgb(127 29 29 / 0.2); --error-text: var(--red-200);
+  --tile-green-bg: rgb(20 83 45 / 0.2); --tile-blue-bg: rgb(30 58 138 / 0.2); --tile-purple-bg: rgb(88 28 135 / 0.2);
+  --tile-label: var(--gray-400);
+  --input-border: var(--gray-600);
+  --tile-green: var(--green-400); --tile-blue: #93c5fd; --tile-purple: #d8b4fe;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.light) {
+    --bg: var(--gray-900); --surface: var(--gray-800); --surface-2: var(--gray-900);
+    --text: var(--gray-100); --muted: var(--gray-400); --border: var(--gray-700);
+    --brand-text: var(--brand-light);
+    --btn2-bg: var(--gray-700); --btn2-hover: var(--gray-600); --btn2-text: var(--gray-100);
+    --badge-bg: var(--amber-900); --badge-text: var(--amber-200);
+    --warn-bg: rgb(120 53 15 / 0.2); --warn-text: var(--amber-200);
+    --error-bg: rgb(127 29 29 / 0.2); --error-text: var(--red-200);
+    --tile-green-bg: rgb(20 83 45 / 0.2); --tile-blue-bg: rgb(30 58 138 / 0.2); --tile-purple-bg: rgb(88 28 135 / 0.2);
+    --tile-label: var(--gray-400);
+    --input-border: var(--gray-600);
+    --tile-green: var(--green-400); --tile-blue: #93c5fd; --tile-purple: #d8b4fe;
+  }
+}
+
+/* Devnet: remaps brand/gradient only, composes with dark. */
+.theme-devnet {
+  --brand: #197a4b; --brand-hover: #115a36; --brand-light: #51b883;
+  --grad: linear-gradient(to right, #197a4b, #51b883);
+}

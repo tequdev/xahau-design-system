@@ -1,0 +1,6 @@
+{
+  "formatter": { "enabled": true, "indentStyle": "space" },
+  "css": { "formatter": { "enabled": true } },
+  "json": { "formatter": { "enabled": true } },
+  "html": { "formatter": { "enabled": true } }
+}
