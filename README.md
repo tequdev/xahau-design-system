@@ -17,7 +17,7 @@ A framework-free CSS design system for Xahau network tools. Plain CSS custom pro
 
 ## Decisions
 
-- Testnet blue (`#183FB7`, hover `#1d4ed8`, light `#7592F7`) is the default brand. Devnet green (`#197a4b`) is the `.theme-devnet` override and remaps only brand and gradient tokens. Yellow (`#ca8a04`, gradient `#a16207`→`#eab308`) is `.theme-yellow`, same shape; it has no source page and shares its hue with the warning button and badge.
+- Testnet blue (`#183FB7`, hover `#1d4ed8`, light `#7592F7`) is the default brand. Devnet green (`#197a4b`) is the `.theme-devnet` override and remaps only brand and gradient tokens. Yellow (`#fffd57`, sampled from the Xahau GitHub avatar) is `.theme-yellow`; it also sets `--on-brand` and `--glass` to the logo navy `#0e0143` because white text does not read on it, and light-mode brand text is that navy too.
 - Gray scale and accents are the Tailwind palette used by testnet. The devnet page's Digital Agency token file is not vendored.
 - Fonts are Inter and Source Code Pro (testnet), not devnet's Noto Sans Mono. Fonts are not imported by the CSS, link them in `<head>`; fallbacks are system fonts.
 - Dark mode works via `.dark` on `<html>` (testnet style), `[data-theme="dark"]`, or the OS preference unless `[data-theme="light"]`/`.light` is set.

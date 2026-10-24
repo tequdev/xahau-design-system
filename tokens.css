@@ -59,6 +59,9 @@
   --muted: var(--gray-500);
   --border: var(--gray-200);
   --brand-text: var(--brand);
+  --on-brand: #fff;
+  --glass: rgb(255 255 255 / 0.2);
+  --glass-hover: rgb(255 255 255 / 0.3);
   --btn2-bg: var(--gray-200);
   --btn2-hover: var(--gray-300);
   --btn2-text: var(--gray-900);
@@ -143,10 +146,18 @@
   --grad: linear-gradient(to right, #197a4b, #51b883);
 }
 
-/* Yellow: same shape as devnet. Dark enough for white text on the gradient; brand-light is the dark-mode text. */
+/* Yellow: Xahau's logo yellow (#fffd57) with the logo navy (#0e0143) as the text on it. Too light for white text, so it also remaps on-brand, glass and the light-mode brand text. */
 .theme-yellow {
-  --brand: #ca8a04;
-  --brand-hover: #a16207;
-  --brand-light: #facc15;
-  --grad: linear-gradient(to right, #a16207, #eab308);
+  --brand: #fffd57;
+  --brand-hover: #f0ec3a;
+  --brand-light: #fffd57;
+  --grad: linear-gradient(to right, #fffd57, #fff9ad);
+  --on-brand: #0e0143;
+  --glass: rgb(14 1 67 / 0.08);
+  --glass-hover: rgb(14 1 67 / 0.15);
+  --brand-text: #0e0143;
+}
+.dark.theme-yellow,
+[data-theme="dark"].theme-yellow {
+  --brand-text: var(--brand-light);
 }
