@@ -56,8 +56,12 @@
         <div class="demo-actions">
           <button class="x-btn x-btn-secondary" data-mode="light">Light</button>
           <button class="x-btn x-btn-secondary" data-mode="dark">Dark</button>
-          <button class="x-btn x-btn-secondary" data-mode="devnet">
-            Devnet
+          <button class="x-btn x-btn-secondary" data-brand="">Blue</button>
+          <button class="x-btn x-btn-secondary" data-brand="theme-devnet">
+            Green
+          </button>
+          <button class="x-btn x-btn-secondary" data-brand="theme-yellow">
+            Yellow
           </button>
           <a class="x-btn x-btn-warning" href="https://xahau.network"
             >Official Website</a
@@ -244,17 +248,16 @@
     </footer>
     <script>
     const root = document.documentElement;
-    document.querySelectorAll("[data-mode]").forEach(
-      (b) =>
-        (b.onclick = () => {
-          const m = b.dataset.mode;
-          if (m === "devnet") root.classList.toggle("theme-devnet");
-          else root.classList.toggle("dark", m === "dark");
-          root.dataset.theme = root.classList.contains("dark")
-            ? "dark"
-            : "light"; // pin choice over the OS preference
-        }),
-    );
+    for (const b of document.querySelectorAll("[data-mode]"))
+      b.onclick = () => {
+        root.classList.toggle("dark", b.dataset.mode === "dark");
+        root.dataset.theme = b.dataset.mode; // pin choice over the OS preference
+      };
+    for (const b of document.querySelectorAll("[data-brand]"))
+      b.onclick = () => {
+        root.classList.remove("theme-devnet", "theme-yellow");
+        if (b.dataset.brand) root.classList.add(b.dataset.brand);
+      };
     </script>
   </body>
 </html>

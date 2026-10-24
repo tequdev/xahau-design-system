@@ -142,3 +142,11 @@
   --brand-light: #51b883;
   --grad: linear-gradient(to right, #197a4b, #51b883);
 }
+
+/* Yellow: same shape as devnet. Dark enough for white text on the gradient; brand-light is the dark-mode text. */
+.theme-yellow {
+  --brand: #ca8a04;
+  --brand-hover: #a16207;
+  --brand-light: #facc15;
+  --grad: linear-gradient(to right, #a16207, #eab308);
+}

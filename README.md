@@ -1,6 +1,14 @@
 # Xahau Design System
 
-A framework-free CSS design system for Xahau network tools. Plain CSS custom properties plus `x-` prefixed component classes, no build step, no dependencies. Open `index.html` for a living demo of every component in light, dark, and devnet themes.
+A framework-free CSS design system for Xahau network tools. Plain CSS custom properties plus `x-` prefixed component classes, no build step, no dependencies. Open `index.html` for a living demo of every component in every theme.
+
+| Blue (default)               | Green (`.theme-devnet`)        |
+| ---------------------------- | ------------------------------ |
+| ![Blue theme](docs/blue.png) | ![Green theme](docs/green.png) |
+
+| Yellow (`.theme-yellow`)         | Dark (`.dark`)               |
+| -------------------------------- | ---------------------------- |
+| ![Yellow theme](docs/yellow.png) | ![Dark theme](docs/dark.png) |
 
 ## Sources
 
@@ -9,11 +17,11 @@ A framework-free CSS design system for Xahau network tools. Plain CSS custom pro
 
 ## Decisions
 
-- Testnet blue (`#183FB7`, hover `#1d4ed8`, light `#7592F7`) is the default brand. Devnet green (`#197a4b`) is the `.theme-devnet` override and remaps only brand and gradient tokens.
+- Testnet blue (`#183FB7`, hover `#1d4ed8`, light `#7592F7`) is the default brand. Devnet green (`#197a4b`) is the `.theme-devnet` override and remaps only brand and gradient tokens. Yellow (`#ca8a04`, gradient `#a16207`→`#eab308`) is `.theme-yellow`, same shape; it has no source page and shares its hue with the warning button and badge.
 - Gray scale and accents are the Tailwind palette used by testnet. The devnet page's Digital Agency token file is not vendored.
 - Fonts are Inter and Source Code Pro (testnet), not devnet's Noto Sans Mono. Fonts are not imported by the CSS, link them in `<head>`; fallbacks are system fonts.
 - Dark mode works via `.dark` on `<html>` (testnet style), `[data-theme="dark"]`, or the OS preference unless `[data-theme="light"]`/`.light` is set.
-- Devnet is a class (`.theme-devnet`), not a `data-theme` value, so it composes with dark mode. Put it on `<html>`.
+- Brand themes are classes (`.theme-devnet`, `.theme-yellow`), not `data-theme` values, so they compose with dark mode. Put them on `<html>`.
 - Focus is a 2px brand outline, equivalent to testnet's ring.
 - No icon font, since testnet's Font Awesome kit is tied to their account. Use inline SVG.
 - The Hooks Builder purple `#9D2DFF` is a logo fill, not a token.
@@ -24,7 +32,7 @@ A framework-free CSS design system for Xahau network tools. Plain CSS custom pro
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="xahau.css">
-<html class="dark theme-devnet"> <!-- both optional -->
+<html class="dark theme-devnet"> <!-- both optional; or theme-yellow -->
 ```
 
 ## Components
