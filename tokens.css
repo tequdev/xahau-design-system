@@ -1,4 +1,4 @@
-/* Xahau Design System tokens. Primitives follow xahau-test.net (Tailwind palette); semantic vars drive components. */
+/* Xahau Design System tokens. Primitives (Tailwind-style palette) feed the semantic vars that drive components. */
 :root {
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
@@ -81,7 +81,7 @@
   --tile-purple: var(--purple-800);
 }
 
-/* Dark: `.dark` on <html> (testnet style), [data-theme="dark"], or the OS preference unless [data-theme="light"]. */
+/* Dark: `.dark` on <html>, [data-theme="dark"], or the OS preference unless [data-theme="light"]. */
 .dark,
 [data-theme="dark"] {
   --bg: var(--gray-900);
@@ -138,8 +138,8 @@
   }
 }
 
-/* Devnet: remaps brand/gradient only, composes with dark. */
-.theme-devnet {
+/* Green: remaps brand/gradient only, composes with dark. */
+.theme-green {
   --brand: #197a4b;
   --brand-hover: #115a36;
   --brand-light: #51b883;

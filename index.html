@@ -93,7 +93,7 @@
           <button class="x-btn x-btn-secondary" data-mode="light">Light</button>
           <button class="x-btn x-btn-secondary" data-mode="dark">Dark</button>
           <button class="x-btn x-btn-secondary" data-brand="">Blue</button>
-          <button class="x-btn x-btn-secondary" data-brand="theme-devnet">
+          <button class="x-btn x-btn-secondary" data-brand="theme-green">
             Green
           </button>
           <button class="x-btn x-btn-secondary" data-brand="theme-yellow">
@@ -124,12 +124,12 @@
         <h2>Section heading</h2>
         <p>
           Secondary text is set in
-          <span style="color:var(--muted)">the muted tone</span> for captions,
-          labels and help text.
+          <span style="color:var(--muted)">the muted tone</span>
+          for captions, labels and help text.
         </p>
         <h3>Subsection heading</h3>
         <div class="x-box">
-          wss://xahau.example.net
+          https://api.example.net
           <span style="color:var(--muted)"
             >// .x-box: a monospace inset for addresses, URLs and JSON</span
           >
@@ -201,12 +201,12 @@
                 everything placed on it uses the on-brand text colour and glass
                 buttons.
               </p>
-              <div class="x-endpoints">
-                <div class="x-endpoint">
+              <div class="x-rows">
+                <div class="x-row">
                   <div><small>Label</small>Value text</div>
                   <button class="x-btn x-btn-sm">Copy</button>
                 </div>
-                <div class="x-endpoint">
+                <div class="x-row">
                   <div>
                     <small>Link</small><a href="#">https://example.net</a>
                   </div>
@@ -228,7 +228,7 @@
             <div class="x-card-body">
               <div class="x-tiles">
                 <div class="x-tile x-tile-green"><b>1,234,567</b>Count</div>
-                <div class="x-tile x-tile-blue"><b>42</b>Peers</div>
+                <div class="x-tile x-tile-blue"><b>42</b>Active</div>
                 <div class="x-tile x-tile-purple"><b>v2026.10</b>Version</div>
               </div>
               <details class="x-details x-box" style="margin-top:16px">
@@ -237,7 +237,7 @@
                   style="margin:12px 0 0;font:inherit;font-size:12px;white-space:pre-wrap"
                 >{
   "state": "full",
-  "peers": 42
+  "active": 42
 }</pre>
               </details>
             </div>
@@ -255,7 +255,7 @@
               <small style="margin:0">Keep this safe</small
               ><button class="x-btn x-btn-sm">Copy</button>
             </div>
-            <span>sEdExampleSecretXXXXXXXXXXXXXX</span>
+            <span>sk_live_exampleKeyXXXXXXXXXXXXXXXX</span>
             <small
               >Shown once. The callout keeps a left border in the warning
               colour.</small
@@ -320,7 +320,7 @@
       };
     for (const b of document.querySelectorAll("[data-brand]"))
       b.onclick = () => {
-        root.classList.remove("theme-devnet", "theme-yellow");
+        root.classList.remove("theme-green", "theme-yellow");
         if (b.dataset.brand) root.classList.add(b.dataset.brand);
       };
     </script>
