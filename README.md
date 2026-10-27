@@ -172,3 +172,9 @@ Screenshots in `docs/` are 1280px wide captures of `index.html` in each theme.
 ## License
 
 MIT
+
+## Releasing
+
+Bump `version` in `package.json`, merge to `main`, then run the **Release** workflow (Actions → Release → Run workflow). It defaults to a dry run; untick it to publish to npm with provenance and create the `v<version>` tag and GitHub release.
+- First publish: add an npm granular access token with publish rights as the `NPM_TOKEN` repository secret.
+- After that: on npmjs.com, package settings → Trusted publisher → GitHub Actions, repository `tequdev/xahau-design-system`, workflow `release.yml`. Then delete the `NPM_TOKEN` secret; the workflow falls back to OIDC.

@@ -1,0 +1,41 @@
+# Manual release: publishes package.json's version to npm, then creates the v<version> tag and a
+# GitHub release. Defaults to a dry run. npm auth: the NPM_TOKEN secret if set (needed for the first
+# publish), else Trusted Publishing (OIDC): register this repo + workflow file under the package's
+# "Trusted publisher" settings on npmjs.com, then delete the NPM_TOKEN secret.
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (no publish, no tag, no release)"
+        type: boolean
+        default: true
+permissions:
+  contents: write # tag + release
+  id-token: write # npm provenance / OIDC
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24 # npm >= 11.5 for OIDC publishing
+          registry-url: https://registry.npmjs.org
+      - id: v
+        run: echo "tag=v$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+      - run: git fetch --tags && ! git rev-parse -q --verify "refs/tags/${{ steps.v.outputs.tag }}" # version must be unreleased
+      - run: npx --yes @biomejs/biome@2.6.2 ci .
+      - run: npm pack --dry-run
+      # Skipped when the version is already on npm, so a run that failed after publishing can be re-run.
+      - run: npm view "@tequdev/xahau-design-system@${TAG#v}" version >/dev/null 2>&1 && echo "already published" || npm publish --provenance --access public ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          TAG: ${{ steps.v.outputs.tag }}
+          # NPM_TOKEN when set (needed for the first publish, before a trusted publisher can exist); otherwise keep
+          # setup-node's placeholder so OIDC is used (an empty token has been reported to break OIDC).
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN || env.NODE_AUTH_TOKEN }}
+      - if: ${{ !inputs.dry_run }}
+        run: gh release create "${{ steps.v.outputs.tag }}" --target "$GITHUB_SHA" --generate-notes # also creates the tag
+        env:
+          GH_TOKEN: ${{ github.token }}
